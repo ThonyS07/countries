@@ -1,0 +1,48 @@
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Country{
+id String @id @unique @db.VarChar(3)
+name String
+flag String
+continent String
+capital String
+subregion String
+area Float
+population Int
+languagues String[]
+translations String[]
+currencies String[]
+timezones String[]
+activities CountriesActivities[]
+
+}
+model Activity {
+  id         String   @id @default(uuid())
+  name       String
+  difficulty Int
+  duration   Int
+  season     Season
+countries CountriesActivities[]
+//   @@map("activities") // Opcional: Si deseas mapear el modelo a una tabla específica
+}
+enum Season {
+  Summer
+  Spring
+  Winter
+  Autumn
+  All_seasons
+}
+
+model CountriesActivities {
+  country Country @relation(fields: [countryId], references: [id])
+  countryId String
+  activity Activity @relation(fields: [activityId], references: [id])
+  activityId String
+
+  @@id([countryId, activityId])
+}
+
