@@ -1,13 +1,13 @@
 import { create } from "zustand";
+import { Activity} from "@prisma/client";
 
 interface ActivitiesState {
-	activities: [];
+	activities: Activity[];
 }
 
-const useStore = create((set) => ({
-	bears: [],
+export const useActivityStore = create<ActivitiesState>((set) => ({
+	activities: [],
 
-	increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
-	removeAllBears: () => set({ bears: 0 }),
-	updateBears: (newBears) => set({ bears: newBears }),
+	setActivities: (activities: Activity[]) => set({ activities: activities }),
+	
 }));
