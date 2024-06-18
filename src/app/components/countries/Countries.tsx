@@ -2,7 +2,7 @@
 import {useEffect } from "react";
 
 //?Components
-// import Card from "../card/Card";
+import Card from "../card/Card";
 // import Paginated from "../paginated/Paginated";
 // import CountryBar from "../countryBar/CountryBar";
 //?Styles
@@ -44,7 +44,7 @@ const Countries = () => {
 	// }, [dispatch]);
 	return (
 		<div className={styles.content}>
-			<CountryBar />
+			{/* <CountryBar /> */}
 			<div className='grid grid-[repeat(5,auto)] gap-[10px] justify-center'>
 				{!countries ? (
 					<h4 className={styles.loading}>Loading..</h4>
