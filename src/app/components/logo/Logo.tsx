@@ -6,9 +6,9 @@ import React from "react";
 
 const Logo = () => {
 	return (
-		<div className={styles.logo}>
+		<div className='flex w-[138px] h-[27px] items-center gap-[5px] shrink-0'>
 			<Image src={logo} alt='logo' />
-			<h2 className={styles.text}> Countries</h2>
+			<h2 className='font-pacifico'> Countries</h2>
 		</div>
 	);
 };
